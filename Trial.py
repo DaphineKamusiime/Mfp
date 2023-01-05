@@ -1,15 +1,18 @@
-'''
 import io
 import random
 import string 
 import warnings
 import numpy as np
+
 from sklearn.feature_extraction.text import TfidfVectorizer
+
 from sklearn.metrics.pairwise import cosine_similarity
+
 import warnings
 warnings.filterwarnings('ignore')
 
 import nltk
+
 from nltk.stem import WordNetLemmatizer
 nltk.download('popular', quiet=True) # for downloading packages
 
@@ -36,6 +39,7 @@ def LemNormalize(text):
 
 
 # Keyword Matching
+
 GREETING_INPUTS = ("hello", "hi", "greetings", "sup", "what's up","hey",)
 GREETING_RESPONSES = ["hi", "hey", "*nods*", "hi there", "hello", "I am glad! You are talking to me"]
 
@@ -47,6 +51,7 @@ def greeting(sentence):
 
 
 # Generating response
+
 def response(user_response):
     robo_response=''
     sent_tokens.append(user_response)
@@ -57,6 +62,7 @@ def response(user_response):
     flat = vals.flatten()
     flat.sort()
     req_tfidf = flat[-2]
+    
     if(req_tfidf==0):
         robo_response=robo_response+"I am sorry! I don't understand you"
         return robo_response
@@ -66,22 +72,26 @@ def response(user_response):
 
 
 flag=True
+
 print("ROBO: My name is Robo. I will answer your queries about Chatbots. If you want to exit, type Bye!")
+
 while(flag==True):
     user_response = input()
     user_response=user_response.lower()
+    
     if(user_response!='bye'):
         if(user_response=='thanks' or user_response=='thank you' ):
             flag=False
             print("ROBO: You are welcome..")
         else:
             if(greeting(user_response)!=None):
-                print("ROBO: "+greeting(user_response))
+                print("ROBO: "+ greeting(user_response))
+                
             else:
-                print("ROBO: ",end="")
+                print("ROBO: ", end=" ")
                 print(response(user_response))
                 sent_tokens.remove(user_response)
     else:
         flag=False
         print("ROBO: Bye! take care..")  
-        '''
+        
