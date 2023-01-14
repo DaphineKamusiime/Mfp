@@ -70,10 +70,9 @@ def response(user_response):
         robo_response = robo_response+sent_tokens[idx]
         return robo_response
 
-
 flag=True
 
-print("ROBO: My name is Robo. I will answer any of your queries. If you want to exit, type Bye!")
+print("ROBO: I'm Robo. I will answer any of your queries. If you want to exit, type Bye!")
 
 while(flag==True):
     user_response = input()
@@ -82,7 +81,7 @@ while(flag==True):
     if(user_response!='bye'):
         if(user_response=='thanks' or user_response=='thank you' ):
             flag=False
-            print("ROBO: You are welcome..")
+            print("ROBO: You are welcome...")
         else:
             if(greeting(user_response)!=None):
                 print("ROBO: "+ greeting(user_response))
