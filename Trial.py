@@ -72,7 +72,7 @@ def response(user_response):
 
 flag=True
 
-print("ROBO: I'm Robo. I will answer any of your queries. If you want to exit, type Bye!")
+print("ROBO: I'm Robo. I answer any of your queries. If you want to exit, type Bye!")
 
 while(flag==True):
     user_response = input()
